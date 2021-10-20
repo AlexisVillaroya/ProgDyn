@@ -17,15 +17,14 @@ int find_by_dichotomy(int array[], int size_t, int value){
     while(first <= 1){
         if (array[mid] < value){
             first = mid + 1;
-            position = mid + 1;
         }else if(array[mid] == value){
             position = mid;
             break;
         }else{
             last = mid - 1;
-            position = mid - 1;
         }
         mid = (first + last) / 2;
+        position = mid;
     }
     return position;
 }
