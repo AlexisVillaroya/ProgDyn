@@ -6,8 +6,6 @@
  * @return The position of the value found or -1
  */
 
-
-
 int find_by_dichotomy(int array[], int size_t, int value){
     int position, first, last, mid;
     first = array[0];
