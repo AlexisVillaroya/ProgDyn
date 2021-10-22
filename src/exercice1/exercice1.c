@@ -6,21 +6,25 @@
  * @return The position of the value found or -1
  */
 
-int find_by_dichotomy(int array[], int size_t, int value){
+int find_by_dichotomy(int array[], int size_t, int value)
+{
     int position, first, last, mid;
     first = array[0];
-    last = array[size_t-1];
+    last = array[size_t - 1];
     mid = (first + last) / 2;
 
-    while(first <= 1){
-        if (array[mid] < value){
+    while (first <= 1)
+    {
+        if (array[mid] < value)
             first = mid + 1;
-        }else if(array[mid] == value){
+        else if (array[mid] == value)
+        {
             position = mid;
             break;
-        }else{
-            last = mid - 1;
         }
+        else
+            last = mid - 1;
+
         mid = (first + last) / 2;
         position = mid;
     }
