@@ -5,6 +5,8 @@
 #include "exercice2/exercice2.h"
 #include "exercice3/exercice3.h"
 
+#define SIZE_MAT 10
+
 int main()
 {
 	// int array[] = {1,2,3,4,5,6,7,8,9,10};
@@ -26,8 +28,9 @@ int main()
 	// assert(backpack->c == 7);
 	// backpack++;
 	
-	int** mat;
-	createMatrice(mat, 5);
-	displayMatrice(mat, 5);
-
+	int* mat = createMat(mat, SIZE_MAT);
+	//int mat[16] = {1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0};
+	displayMat(mat, SIZE_MAT);
+	findPgcb(mat, SIZE_MAT);
+	free(mat);
 }

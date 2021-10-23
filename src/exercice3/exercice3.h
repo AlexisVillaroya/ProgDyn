@@ -1,2 +1,3 @@
-void createMatrice(int *mat, int n);
-void displayMatrice(int *mat, int n);
+int* createMat(int* mat, int n);
+void displayMat(int *mat, int n);
+void findPgcb(int *mat, int n);
