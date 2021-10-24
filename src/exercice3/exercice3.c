@@ -6,7 +6,7 @@
 #include "exercice3.h"
 
 /**
- * @brief Trouve le minimum entre deux ou plusieurs nombre
+ * @brief Renvoie le minimum entre deux ou plusieurs nombre
  * 
  * @param args Total number of integers
  * @param ... List of integer variables to find minimum
@@ -34,11 +34,11 @@ int min(int args, ...)
 }
 
 /**
- * @brief Create a Mat object
+ * @brief Crée une matrice de n * n éléments (0 et 1 aléatoire)
  * 
- * @param mat 
- * @param n 
- * @return int* 
+ * @param mat Two dimensional array
+ * @param n Size of the 2D array 
+ * @return Matrice created
  */
 
 int *createMat(int *mat, int n)
@@ -61,10 +61,10 @@ int *createMat(int *mat, int n)
 }
 
 /**
- * @brief 
+ * @brief Affiche la matrice sans le pgcb
  * 
- * @param mat 
- * @param n 
+ * @param mat Two dimensional array
+ * @param n Size of the 2D array
  */
 
 void displayMat(int *mat, int n)
@@ -85,11 +85,11 @@ void displayMat(int *mat, int n)
 }
 
 /**
- * @brief 
+ * @brief Renvoie la position du pixel en bas à droite du pgcb
  * 
- * @param mat 
- * @param n 
- * @return Pos 
+ * @param mat Two dimensional array
+ * @param n Size of the 2D array
+ * @return Position of the bottom right pixel of the biggest white square
  */
 
 Pos findPgcb(int *mat, int n)
@@ -123,11 +123,11 @@ Pos findPgcb(int *mat, int n)
 }
 
 /**
- * @brief 
+ * @brief Affiche la matrice avec le pgcb
  * 
- * @param mat 
- * @param n 
- * @param p 
+ * @param mat Two dimensional Array
+ * @param n Size of the 2D array
+ * @param p Position of the biggest white square
  */
 
 void displayMatPgcb(int *mat, int n, Pos p){

@@ -3,8 +3,8 @@
 /**
  * @brief Tri par ordre décroissant en fonction du ratio
  *
- * @param obj array of Object (weight and value)
- * @param n number of objects in the array
+ * @param obj Array of Object (weight and value)
+ * @param n Number of objects in the array
  */
 
 void descendingSort(Object obj[], size_t n)
@@ -27,10 +27,10 @@ void descendingSort(Object obj[], size_t n)
 /**
  * @brief Renvoie la liste des objets avec le meilleur ratio
  *
- * @param obj array of Object (weight and value)
- * @param n number of objects in the array
- * @param W maximum capacity of the bag
- * @return int
+ * @param obj Array of Object (weight and value)
+ * @param n Number of objects in the array
+ * @param W Maximum capacity of the bag
+ * @return Object with best ratio
  */
 
 Object *knapsack(Object obj[], int n, int W)

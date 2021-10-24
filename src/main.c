@@ -9,11 +9,11 @@
 
 int main()
 {
+	// Exerice 1
 	int array[] = {1,2,3,4,5,6,7,8,9,10};
-	int test = find_by_dichotomy(array, 10, 10);
-	printf("%d\n", test);
 	assert(find_by_dichotomy(array, 10, 4) == 3);
 
+	// Exerice 2
 	Object obj1, obj2, obj3;
 	obj1.w = 6;
 	obj1.c = 7;
@@ -28,6 +28,7 @@ int main()
 	assert(bag->c == 7);
 	bag++;
 	
+	// Exerice 3
 	int* mat = createMat(mat, SIZE_MAT);
 	displayMat(mat, SIZE_MAT);
 	Pos positionPgcb = findPgcb(mat, SIZE_MAT);

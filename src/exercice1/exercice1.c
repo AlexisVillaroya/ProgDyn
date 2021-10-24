@@ -1,5 +1,6 @@
 /**
- * Recherche par dichotomie dans un tableau d'entiers
+ * @brief Recherche par dichotomie dans un tableau d'entiers
+ * 
  * @param array The array of values
  * @param size_t The size of the array
  * @param value The value to find
