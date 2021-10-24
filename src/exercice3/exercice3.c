@@ -3,9 +3,10 @@
 #include <string.h>
 #include <limits.h>
 #include <stdarg.h>
+#include "exercice3.h"
 
 /**
- * @brief Find minimum between two or more integer variables
+ * @brief Trouve le minimum entre deux ou plusieurs nombre
  * 
  * @param args Total number of integers
  * @param ... List of integer variables to find minimum
@@ -33,11 +34,11 @@ int min(int args, ...)
 }
 
 /**
- * @brief Crée une matrice de taille n * n (0 et 1 aléatoire)
+ * @brief Create a Mat object
  * 
- * @param mat array pointer
- * @param n size of the array 
- * @return int*
+ * @param mat 
+ * @param n 
+ * @return int* 
  */
 
 int *createMat(int *mat, int n)
@@ -58,39 +59,44 @@ int *createMat(int *mat, int n)
 
     return mat;
 }
+
 /**
- * @brief Affiche la matrice (* et " ")
+ * @brief 
  * 
- * @param mat array pointer
- * @param n size of the array
+ * @param mat 
+ * @param n 
  */
 
 void displayMat(int *mat, int n)
 {
-    printf("Les éléments de la matrice sont :\n");
     for (int i = 0; i < n; ++i)
     {
         for (int j = 0; j < n; ++j)
         {
             if (mat[(i * n) + j] == 1)
                 printf("%c ", '*');
+            else if(mat[(i * n) + j] == 0)
+                printf("%c ", ' ');
             else
-                printf("%c", ' ');
+                printf("%c ", '#');
         }
         printf("\n");
     }
 }
 
 /**
- * @brief Recherche le plus grand carré de 0
+ * @brief 
  * 
  * @param mat 
  * @param n 
+ * @return Pos 
  */
 
-void findPgcb(int *mat, int n)
+Pos findPgcb(int *mat, int n)
 {
     int *cacheMat = (int *)malloc(sizeof(int[n][n]));
+    Pos position;
+    position.size = 0;
     for (int r = 0; r < n; r++)
         memcpy(&cacheMat[r], &mat[r], sizeof(int[n][n]));
 
@@ -103,19 +109,32 @@ void findPgcb(int *mat, int n)
                 if(i == 0 || j == 0)
                     cacheMat[(i * n) + j] = 1;
                 else
-                    cacheMat[(i * n) +j] = 1 + min(3, cacheMat[((i-1) * n) + (j - 1)], 
-                    cacheMat[(i * n) + (j - 1)], cacheMat[((i-1) * n) + (j - 1)]);
+                    cacheMat[(i * n) + j] = 1 + min(3, cacheMat[((i-1) * n) + (j - 1)], 
+                    cacheMat[(i * n) + (j - 1)], cacheMat[((i-1) * n) + j]);
             }
+            if(cacheMat[(i * n) + j] > position.size){
+                position.size = cacheMat[(i * n) + j];
+                position.x = i; 
+                position.y = j;
+            }    
         }
 
-    printf("#################\n");
-    //displayMat(cacheMat, 5);
-     for (int i = 0; i < n; ++i)
-    {
-        for (int j = 0; j < n; ++j)
-        {
-            printf("%d ", cacheMat[(i * n) + j]);
+    return position;
+}
+
+/**
+ * @brief 
+ * 
+ * @param mat 
+ * @param n 
+ * @param p 
+ */
+
+void displayMatPgcb(int *mat, int n, Pos p){
+    for (int i = (p.x - p.size + 1); i <=  p.x; i++){
+        for (int j = (p.y - p.size + 1); j <= p.y; j++){
+            mat[(n*i) + j] = 2;
         }
-        printf("\n");
-    }
+    }    
+    displayMat(mat, n);  
 }

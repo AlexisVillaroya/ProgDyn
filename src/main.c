@@ -5,32 +5,33 @@
 #include "exercice2/exercice2.h"
 #include "exercice3/exercice3.h"
 
-#define SIZE_MAT 10
+#define SIZE_MAT 25
 
 int main()
 {
-	// int array[] = {1,2,3,4,5,6,7,8,9,10};
-	// int test = find_by_dichotomy(array, 10, 10);
-	// printf("%d\n", test); // 3
-	// assert(find_by_dichotomy(array, 10, 4) == 3);
-	// return (0);
+	int array[] = {1,2,3,4,5,6,7,8,9,10};
+	int test = find_by_dichotomy(array, 10, 10);
+	printf("%d\n", test);
+	assert(find_by_dichotomy(array, 10, 4) == 3);
 
-	// Object o1, o2, o3;
-	// o1.w = 6;o1.c = 7;
-	// o2.w = 5;o2.c = 5;
-	// o3.w = 5;o3.c = 5;
-	// Object objects[3] = {o1, o2,o3};
-	// Object *backpack;
-	// backpack = knapsack(objects, 3, 10);
-	// Object *endPtr = backpack + sizeof(backpack)/sizeof(backpack[0]);
-	// printf("L'object w : %d, c: %d\n", backpack->w,backpack->c);
-	// assert(backpack->w == 6);
-	// assert(backpack->c == 7);
-	// backpack++;
+	Object obj1, obj2, obj3;
+	obj1.w = 6;
+	obj1.c = 7;
+	obj2.w = 5;
+	obj2.c = 5;
+	obj3.w = 5;
+	obj3.c = 5;
+	Object objects[3] = {obj1, obj2, obj3};
+	Object *bag;
+	bag = knapsack(objects, 3, 10);
+	assert(bag->w == 6);
+	assert(bag->c == 7);
+	bag++;
 	
 	int* mat = createMat(mat, SIZE_MAT);
-	//int mat[16] = {1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0};
 	displayMat(mat, SIZE_MAT);
-	findPgcb(mat, SIZE_MAT);
+	Pos positionPgcb = findPgcb(mat, SIZE_MAT);
+	printf("\n#### RESULTAT DE LA RECHERCHE ####\n");
+	displayMatPgcb(mat, SIZE_MAT, positionPgcb);
 	free(mat);
 }
